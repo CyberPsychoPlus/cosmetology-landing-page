@@ -6,9 +6,15 @@
 
 body {
   font-family: 'Raleway';
+  background-color: #f0f0f0;
 }
 
 .header {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  z-index: 100;
   background: #0a0908;
 
   &__container {
@@ -200,5 +206,105 @@ body {
 
   &__thumb {
     filter: invert(100%);
+  }
+}
+
+.cosmetics {
+  margin-bottom: 120px;
+  &__title {
+    text-align: center;
+    color: #000;
+    font-family: Didot;
+    font-size: 75px;
+    padding-bottom: 80px;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 25px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: 0.3s all linear;
+
+    &:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+      .cosmetics__card-pic img {
+        transform: scale(1.1);
+      }
+    }
+
+    .cosmetics__card-pic img {
+      transition: 0.4s all linear;
+      transform: scale(1);
+    }
+  }
+
+  &__card-pic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__card-thumb {
+    width: 250px;
+  }
+
+  &__card-name {
+    color: #000;
+    text-transform: uppercase;
+    font-family: Raleway;
+    font-size: 30px;
+    line-height: 165%; /* 82.5px */
+    letter-spacing: 1.5px;
+    color: #292929;
+  }
+
+  &__card-subtitle {
+    color: #000;
+    text-transform: uppercase;
+    font-family: Raleway;
+    font-size: 20px;
+    line-height: 165%; /* 82.5px */
+    letter-spacing: 1.5px;
+    padding-bottom: 20px;
+  }
+
+  &__card-desc {
+    color: #000;
+    font-family: Raleway;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 165%; /* 41.25px */
+    letter-spacing: 0.75px;
+    padding-bottom: 20px;
+  }
+
+  &__card-link {
+    display: inline-block;
+    margin-top: auto;
+    border-radius: 3.5313rem;
+    background: #0f61cb;
+    color: #fff;
+    width: 118px;
+    padding: 12px 19px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: 0.4s all linear;
+    &:hover,
+    &:focus,
+    &:active {
+      background: #000000;
+    }
   }
 }

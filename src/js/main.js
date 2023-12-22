@@ -5,7 +5,7 @@ import '../scss/style.scss';
     const headerElHeight = document.querySelector('.skincare').clientHeight;
     let target = document.querySelector(targetEl);
     let targetPosition = target.getBoundingClientRect().top - headerElHeight;
-    let startPosition = window.pageYOffset;
+    let startPosition = window.scrollY;
     let startTime = null;
 
     const ease = function (t, b, c, d) {
