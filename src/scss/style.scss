@@ -296,7 +296,7 @@ body {
     padding: 12px 19px;
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     transition: 0.4s all linear;
     &:hover,
     &:focus,
@@ -332,8 +332,5 @@ body {
     &:hover {
       filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.5));
     }
-  }
-
-  &__block-img {
   }
 }
