@@ -70,6 +70,7 @@ body {
     &:hover,
     &:focus {
       background: #447466;
+      box-shadow: 0 0 20px rgba(42, 185, 42, 0.2);
     }
     &:active {
       background: #365f53;
@@ -167,13 +168,12 @@ body {
   }
 
   &__title {
-    font-family: Didot;
+    font-family: 'GFS Didot';
     font-size: 5rem;
     padding-bottom: 35px;
   }
 
   &__subtitle {
-    font-family: Raleway;
     font-size: 1.5625rem;
     line-height: 165%; /* 41.25px */
     letter-spacing: 0.0469rem;
@@ -214,8 +214,8 @@ body {
   &__title {
     text-align: center;
     color: #000;
-    font-family: Didot;
-    font-size: 75px;
+    font-family: 'GFS Didot';
+    font-size: 4.6875rem;
     padding-bottom: 80px;
   }
 
@@ -262,30 +262,27 @@ body {
   &__card-name {
     color: #000;
     text-transform: uppercase;
-    font-family: Raleway;
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 165%; /* 82.5px */
-    letter-spacing: 1.5px;
+    letter-spacing: 0.0938rem;
     color: #292929;
   }
 
   &__card-subtitle {
     color: #000;
     text-transform: uppercase;
-    font-family: Raleway;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 165%; /* 82.5px */
-    letter-spacing: 1.5px;
+    letter-spacing: 0.0938rem;
     padding-bottom: 20px;
   }
 
   &__card-desc {
     color: #000;
-    font-family: Raleway;
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 500;
     line-height: 165%; /* 41.25px */
-    letter-spacing: 0.75px;
+    letter-spacing: 0.0469rem;
     padding-bottom: 20px;
   }
 
@@ -297,7 +294,7 @@ body {
     color: #fff;
     width: 118px;
     padding: 12px 19px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 20px;
     transition: 0.4s all linear;
@@ -306,5 +303,37 @@ body {
     &:active {
       background: #000000;
     }
+  }
+}
+
+.contacts {
+  margin-bottom: 120px;
+  &__title {
+    color: #000;
+    text-align: center;
+    font-family: 'GFS Didot';
+    font-size: 4.6875rem;
+    padding-bottom: 80px;
+  }
+
+  &__blocks {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+  }
+
+  &__block {
+    max-width: 64px;
+    min-width: 32px;
+  }
+
+  &__block-link {
+    transition: filter 0.3s ease-in-out;
+    &:hover {
+      filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  &__block-img {
   }
 }
