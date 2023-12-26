@@ -279,7 +279,7 @@ body {
 
   &__card-desc {
     color: #000;
-    font-size: 0.9375rem;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 165%; /* 41.25px */
     letter-spacing: 0.0469rem;
@@ -312,7 +312,7 @@ body {
     color: #000;
     text-align: center;
     font-family: 'GFS Didot';
-    font-size: 4.6875rem;
+    font-size: 3.125rem;
     padding-bottom: 80px;
   }
 
@@ -331,6 +331,71 @@ body {
     transition: filter 0.3s ease-in-out;
     &:hover {
       filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.5));
+    }
+  }
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 30px;
+
+  &__atention {
+    position: relative;
+    border: 1px solid white;
+    padding: 15px 15px 0 15px;
+    margin-bottom: 100px;
+  }
+
+  &__atention-img {
+    position: absolute;
+    max-width: 30px;
+  }
+
+  &__atention-title {
+    font-size: 1.875rem;
+    font-weight: 600;
+    padding-left: 40px;
+    padding-bottom: 25px;
+  }
+
+  &__atention-subtitle {
+    font-size: 1.25rem;
+    padding-bottom: 15px;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    place-items: center;
+  }
+
+  &__logo {
+    color: #fdf4e6;
+    font-family: 'Amatic SC';
+    font-size: 5rem;
+    line-height: 0%;
+    letter-spacing: -0.125rem;
+  }
+
+  &__menu-item {
+    padding-bottom: 15px;
+  }
+
+  &__menu-title {
+    font-size: 1.875rem;
+    font-weight: 600;
+    padding-bottom: 5px;
+  }
+
+  &__menu-link {
+    font-size: 1.5625rem;
+    color: #fff;
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 0.75;
     }
   }
 }
