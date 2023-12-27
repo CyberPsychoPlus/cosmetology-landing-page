@@ -1,38 +1,65 @@
 import '../scss/style.scss';
 
-(function () {
-  const smoothScroll = function (targetEl, duration) {
-    const headerElHeight = document.querySelector('.skincare').clientHeight;
-    let target = document.querySelector(targetEl);
-    let targetPosition = target.getBoundingClientRect().top - headerElHeight;
-    let startPosition = window.scrollY;
-    let startTime = null;
+// Scroll on click for navigation menu
+const menuLinks = document.querySelectorAll('.header__link[data-goto]');
+if (menuLinks.length > 0) {
+  menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener('click', onMenuLinkClick);
+  });
 
-    const ease = function (t, b, c, d) {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
-    };
+  function onMenuLinkClick(e) {
+    const menuLink = e.target;
+    if (
+      menuLink.dataset.goto &&
+      document.querySelector(menuLink.dataset.goto)
+    ) {
+      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+      const gotoBlockValue =
+        gotoBlock.getBoundingClientRect().top +
+        window.scrollY -
+        document.querySelector('header').offsetHeight;
 
-    const animation = function (currentTime) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const run = ease(timeElapsed, startPosition, targetPosition, duration);
-      window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
-    };
-    requestAnimationFrame(animation);
-  };
-
-  const scrollTo = function () {
-    const links = document.querySelectorAll('.js-scroll');
-    links.forEach((each) => {
-      each.addEventListener('click', function () {
-        const currentTarget = this.getAttribute('href');
-        smoothScroll(currentTarget, 1000);
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: 'smooth',
       });
+      e.preventDefault();
+    }
+  }
+}
+
+// Logo scroll
+document.addEventListener('DOMContentLoaded', () => {
+  const logoLink = document.querySelector('.header__logo-link');
+  const targetSection = document.getElementById('main');
+  const headerHeight = document.querySelector('header').offsetHeight;
+
+  logoLink.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const targetOffset = targetSection.offsetTop - headerHeight;
+
+    window.scrollTo({
+      top: targetOffset,
+      behavior: 'smooth',
     });
-  };
-  scrollTo();
-})();
+  });
+});
+
+// Skincare arrow scroll
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollTrigger = document.querySelector('.skincare__link');
+  const targetSection = document.getElementById('cosmetics');
+  const headerHeight = document.querySelector('header').offsetHeight;
+
+  scrollTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const targetOffset = targetSection.offsetTop - headerHeight;
+
+    window.scrollTo({
+      top: targetOffset,
+      behavior: 'smooth',
+    });
+  });
+});
