@@ -1,5 +1,16 @@
 import '../scss/style.scss'
 
+// Burger menu
+const iconMenu = document.querySelector('.menu__icon')
+const headerNav = document.querySelector('.header__nav')
+if (iconMenu) {
+	iconMenu.addEventListener('click', function (e) {
+		document.body.classList.toggle('_lock')
+		iconMenu.classList.toggle('_active')
+		headerNav.classList.toggle('_active')
+	})
+}
+
 // Scroll on click for navigation menu
 const menuLinks = document.querySelectorAll('.header__link[data-goto]')
 if (menuLinks.length > 0) {
@@ -18,6 +29,12 @@ if (menuLinks.length > 0) {
 				gotoBlock.getBoundingClientRect().top +
 				window.scrollY -
 				document.querySelector('header').offsetHeight
+
+			if (iconMenu.classList.contains('_active')) {
+				document.body.classList.remove('_lock')
+				iconMenu.classList.remove('_active')
+				headerNav.classList.remove('_active')
+			}
 
 			window.scrollTo({
 				top: gotoBlockValue,
