@@ -86,13 +86,16 @@ body._lock {
 .intro {
 	margin-bottom: 115px;
 	&__bg {
-		height: 90dvh;
+		height: 100dvh;
 		background: url(/images/intro-bg.jpg) no-repeat center;
 		background-size: cover;
-		padding-top: 310px;
 	}
 
 	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100vh;
 		padding: 0px 20px;
 	}
 
@@ -112,6 +115,7 @@ body._lock {
 	}
 
 	&__button {
+		max-width: 23.75rem;
 		text-transform: uppercase;
 		border-radius: 3.5313rem;
 		background: #669588;
@@ -128,9 +132,10 @@ body._lock {
 
 	&__link {
 		display: inline-block;
-		padding: 0.9375rem 2.4375rem;
+		text-align: center;
+		padding: 1.5625rem 2.1875rem;
 		color: #fff;
-		font-size: 1.875rem;
+		font-size: 2.1875rem;
 	}
 }
 
@@ -194,10 +199,7 @@ body._lock {
 		&::before {
 			content: '';
 			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
+			inset: 0;
 			background: url(/images/skincare-bg.jpg) no-repeat center;
 			background-size: cover;
 			filter: brightness(0.5) contrast(0.8);
@@ -372,6 +374,7 @@ body._lock {
 
 	&__blocks {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
 		gap: 150px;
 	}
@@ -452,11 +455,15 @@ body._lock {
 			opacity: 0.75;
 		}
 	}
+	&__copyright {
+		text-align: center;
+		padding-top: 50px;
+	}
 }
 
 // Adaptive
 
-@media (max-width: 810px) {
+@media (max-width: 1024px) {
 	.menu__icon {
 		z-index: 5;
 		display: block;
@@ -533,16 +540,470 @@ body._lock {
 	.header__nav {
 		position: fixed;
 		top: 0;
-		left: -120%;
+		left: -200%;
 		height: 100%;
 		width: 100%;
 		background-color: rgba(0, 0, 0, 0.9);
-		padding: 20px 30px 30px 30px;
+		padding: 40px 30px 30px 40px;
 		transition: left 0.3s ease 0s;
 		overflow: auto;
 
 		&._active {
 			left: 0;
+		}
+	}
+	.intro {
+		margin-bottom: 100px;
+		&__bg {
+			position: relative;
+			overflow: hidden;
+			z-index: 0;
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.6);
+				z-index: -1;
+			}
+		}
+		&__wrapper {
+			align-items: center;
+		}
+	}
+
+	.about {
+		margin-bottom: 130px;
+
+		&__title {
+			padding-bottom: 80px;
+			font-size: 1.875rem;
+		}
+
+		&__info {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 50px;
+		}
+
+		&__pictures {
+			position: relative;
+		}
+
+		&__pic {
+			position: absolute;
+			max-width: 150px;
+			border-radius: 15px;
+
+			&_displaced {
+				top: 180px;
+				left: 100px;
+			}
+		}
+
+		&__subtitle {
+			font-size: 19px;
+			line-height: 165%;
+			letter-spacing: 0.5px;
+		}
+	}
+	.skincare {
+		margin-bottom: 100px;
+		&__wrapper {
+			display: grid;
+			place-items: center;
+			grid-template-columns: repeat(1, 1fr);
+			grid-column-gap: 150px;
+			grid-row-gap: 40px;
+			padding: 0px 20px;
+		}
+		&__title {
+			font-size: 3.4375rem;
+		}
+
+		&__subtitle {
+			font-size: 1.5625rem;
+		}
+
+		&__img {
+			max-width: 500px;
+			min-width: 400px;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	.cosmetics {
+		margin-bottom: 100px;
+		&__title {
+			font-size: 3.75rem;
+			padding-bottom: 80px;
+		}
+
+		&__cards {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 30px;
+			padding: 0px 80px;
+		}
+
+		&__card {
+			padding: 0 20px 20px 20px;
+		}
+
+		&__card-pic {
+			margin-bottom: 10px;
+		}
+	}
+	.contacts {
+		margin-bottom: 120px;
+
+		&__title {
+			font-size: 2.5rem;
+		}
+
+		&__blocks {
+			display: flex;
+			justify-content: center;
+			gap: 100px;
+		}
+	}
+	.footer {
+		&__item {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 70px;
+			place-items: center;
+		}
+
+		&__logo {
+			font-size: 4.375rem;
+		}
+
+		&__menu-item {
+			padding-bottom: 20px;
+		}
+
+		&__menu-title {
+			font-size: 1.875rem;
+			font-weight: 600;
+			padding-bottom: 5px;
+		}
+
+		&__menu-link {
+			font-size: 1.875rem;
+			color: #fff;
+			&:hover,
+			&:focus,
+			&:active {
+				opacity: 0.75;
+			}
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.header {
+		&__logo {
+			font-size: 30px;
+		}
+	}
+
+	.intro {
+		margin-bottom: 50px;
+		&__title {
+			font-size: 2.0625rem;
+			padding-bottom: 20px;
+		}
+
+		&__subtitle {
+			font-size: 1.5625rem;
+			font-weight: 300;
+			padding-bottom: 30px;
+		}
+
+		&__link {
+			display: inline-block;
+			text-align: center;
+			padding: 1.0625rem 2.1875rem;
+			color: #fff;
+			font-size: 1.25rem;
+		}
+	}
+
+	.about {
+		margin-bottom: 80px;
+
+		&__title {
+			font-size: 1.875rem;
+			line-height: 2.5rem;
+			padding-bottom: 50px;
+		}
+
+		&__info {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			grid-row-gap: 320px;
+			place-items: center;
+		}
+
+		&__pictures {
+			position: relative;
+		}
+
+		&__pic {
+			position: absolute;
+			max-width: 130px;
+			border-radius: 15px;
+
+			&_displaced {
+				top: 100px;
+				left: -140px;
+			}
+		}
+
+		&__subtitle {
+			text-align: center;
+			font-size: 1.375rem;
+		}
+	}
+
+	.skincare {
+		margin-bottom: 100px;
+
+		&__intro {
+			padding: 40px 10px;
+		}
+
+		&__wrapper {
+			display: grid;
+			place-items: center;
+			grid-template-columns: repeat(1, 1fr);
+			grid-row-gap: 30px;
+		}
+		&__title {
+			font-size: 2rem;
+			padding-bottom: 25px;
+		}
+
+		&__subtitle {
+			font-size: 1.4375rem;
+			line-height: 145%;
+		}
+
+		&__img {
+			max-width: 300px;
+			min-width: 200px;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+
+	.cosmetics {
+		margin-bottom: 100px;
+		&__title {
+			font-size: 3.125rem;
+			padding-bottom: 50px;
+		}
+
+		&__cards {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 30px;
+			padding: 0px 15px;
+		}
+
+		&__card {
+			padding: 0 20px 20px 20px;
+		}
+
+		&__card-pic {
+			margin-bottom: 10px;
+		}
+
+		&__card-thumb {
+			width: 200px;
+		}
+	}
+
+	.contacts {
+		margin-bottom: 100px;
+
+		&__title {
+			font-size: 2.5rem;
+			padding-bottom: 80px;
+		}
+
+		&__blocks {
+			display: grid;
+			place-items: center;
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 20px;
+			grid-row-gap: 100px;
+		}
+
+		&__block {
+			max-width: 54px;
+			min-width: 32px;
+		}
+	}
+	.footer {
+		&__attention-subtitle {
+			line-height: 1.4375rem;
+		}
+		&__item {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			grid-row-gap: 100px;
+			place-items: center;
+		}
+
+		&__logo {
+			font-size: 3.75rem;
+			margin-right: 20px;
+		}
+
+		&__menu-item {
+			padding-bottom: 20px;
+		}
+
+		&__menu-title {
+			font-size: 1.875rem;
+			font-weight: 600;
+			padding-bottom: 5px;
+		}
+
+		&__menu-link {
+			font-size: 1.875rem;
+			color: #fff;
+			&:hover,
+			&:focus,
+			&:active {
+				opacity: 0.75;
+			}
+		}
+	}
+}
+
+@media (max-height: 480px) {
+	.intro {
+		margin-bottom: 50px;
+		&__title {
+			font-size: 1.5625rem;
+			padding-bottom: 20px;
+		}
+
+		&__subtitle {
+			font-size: 1.25rem;
+			font-weight: 300;
+			padding-bottom: 30px;
+		}
+
+		&__link {
+			display: inline-block;
+			text-align: center;
+			padding: 1.0625rem 1.875rem;
+			color: #fff;
+			font-size: 0.9375rem;
+		}
+	}
+
+	.about {
+		margin-bottom: 80px;
+
+		&__title {
+			font-size: 1.875rem;
+			line-height: 2.5rem;
+			padding-bottom: 50px;
+		}
+
+		&__info {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			grid-row-gap: 320px;
+			place-items: center;
+		}
+
+		&__pictures {
+			position: relative;
+		}
+
+		&__pic {
+			position: absolute;
+			max-width: 130px;
+			border-radius: 15px;
+
+			&_displaced {
+				top: 100px;
+				left: -140px;
+			}
+		}
+
+		&__subtitle {
+			text-align: center;
+			font-size: 1.375rem;
+		}
+	}
+
+	.skincare {
+		margin-bottom: 100px;
+
+		&__intro {
+			padding: 40px 10px;
+		}
+
+		&__wrapper {
+			display: grid;
+			place-items: center;
+			grid-template-columns: repeat(2, 1fr);
+			grid-row-gap: 30px;
+		}
+		&__title {
+			font-size: 1.875rem;
+			padding-bottom: 25px;
+		}
+
+		&__subtitle {
+			font-size: 1.0625rem;
+			line-height: 145%;
+		}
+
+		&__img {
+			max-width: 300px;
+			min-width: 200px;
+			margin: 0 auto;
+			display: block;
+		}
+
+		&__arrow {
+			max-width: 54px;
+			text-align: center;
+			margin: 0 auto;
+		}
+	}
+
+	.cosmetics {
+		margin-bottom: 100px;
+		&__title {
+			font-size: 3.125rem;
+			padding-bottom: 50px;
+		}
+
+		&__cards {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 30px;
+			padding: 0px 15px;
+		}
+
+		&__card {
+			padding: 0 20px 20px 20px;
+		}
+
+		&__card-pic {
+			margin-bottom: 10px;
+		}
+
+		&__card-thumb {
+			width: 200px;
 		}
 	}
 }
