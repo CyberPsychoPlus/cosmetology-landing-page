@@ -86,15 +86,26 @@ body._lock {
 .intro {
 	margin-bottom: 115px;
 	&__bg {
+		position: relative;
+		overflow: hidden;
+		z-index: 0;
 		height: 100dvh;
 		background: url(/images/intro-bg.jpg) no-repeat center;
 		background-size: cover;
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: -1;
+		}
 	}
 
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		height: 100vh;
 		padding: 0px 20px;
 	}
@@ -565,9 +576,6 @@ body._lock {
 				background: rgba(0, 0, 0, 0.6);
 				z-index: -1;
 			}
-		}
-		&__wrapper {
-			align-items: center;
 		}
 	}
 
