@@ -229,9 +229,9 @@ body._lock {
 		place-items: center;
 		text-align: center;
 		grid-template-columns: repeat(3, 1fr);
-		column-gap: 20px;
-		row-gap: 120px;
-		padding-bottom: 100px;
+		column-gap: 40px;
+		row-gap: 80px;
+		padding-bottom: 80px;
 	}
 
 	&__subtitle {
@@ -247,6 +247,10 @@ body._lock {
 		flex-direction: column;
 		&_img {
 			max-width: 42px;
+			transition: transform 0.3s ease-in-out;
+			&:hover {
+				transform: translateY(10px);
+			}
 		}
 		&_link {
 			text-align: center;
@@ -539,6 +543,19 @@ body._lock {
 	}
 }
 
+// scroll class
+.hidden {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translate(-100%);
+	transition: all 1s;
+}
+
+.show {
+	opacity: 1;
+	filter: blur(0);
+	transform: translate(0);
+}
 // Adaptive
 
 @media (max-width: 1024px) {
