@@ -1,6 +1,6 @@
 @import 'normalize.css';
 @import '_nullstyle';
-@import url(https://fonts.googleapis.com/css?family=Amatic+SC:regular);
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:regular&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,regular,700&subset=cyrillic,latin&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Lato:regular&subset=cyrillic,latin&display=swap);
 
@@ -542,14 +542,12 @@ body._lock {
 // scroll class
 .hidden {
 	opacity: 0;
-	filter: blur(5px);
 	transform: translate(-100%);
 	transition: all 1s;
 }
 
 .show {
 	opacity: 1;
-	filter: blur(0);
 	transform: translate(0);
 }
 // Adaptive
